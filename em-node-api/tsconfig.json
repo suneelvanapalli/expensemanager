@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "lib": ["esnext.asynciterable", "es2017", "es6"],
+        "target": "es6",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "outDir": "./dist",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "typeRoots": [ "./node_modules/@types" ]
+    },
+    "include": ["src/**/*.ts" , "node_modules/@types"]
+}
