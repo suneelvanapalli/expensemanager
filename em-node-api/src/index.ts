@@ -1,13 +1,23 @@
-const koa = require('koa');
-const app = new koa();
+import express from 'express';
+import { MongoClient, MongoClientOptions } from 'mongodb';
+
+const url = "mongodb://localhost:27017/test";
+
+MongoClient.connect(url, (err,db) => {
+    var dbo = db.db("admin");
+     dbo.collection("test").find().toArray((err,result)=>{
+        console.log(result);      
+    });
+    
+});
+
+const app = express();
+
 const port = 3000;
 const serverName = 'test';
 
-
-app.use(async ctx => {
-    ctx.body  = "Hello world!";
+const server = app.listen(port, () => {
+    console.log("app is running on port 3000");
 });
 
-app.listen(port, ()=>{
- console.log(`Server listening on port ${port}`);
-});
+export default server;
