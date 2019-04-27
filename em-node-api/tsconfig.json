@@ -1,16 +1,22 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "lib": ["esnext.asynciterable", "es2017", "es6"],
-        "target": "es6",
-        "noImplicitAny": false,
-        "removeComments": true,
-        "preserveConstEnums": true,
-        "sourceMap": true,
-        "outDir": "./dist",
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "typeRoots": [ "./node_modules/@types" ]
-    },
-    "include": ["src/**/*.ts" , "node_modules/@types"]
+  "compilerOptions": {
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "target": "es6",
+      "noImplicitAny": true,
+      "moduleResolution": "node",
+      "sourceMap": true,
+      "outDir": "dist",
+      "watch": false,
+      "baseUrl": ".",
+      "paths": {
+          "*": [
+              "node_modules/*",
+              "src/types/*"
+          ]
+      }
+  },
+  "include": [
+      "src/**/*"
+  ]
 }
