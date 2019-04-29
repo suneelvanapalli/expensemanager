@@ -1,21 +1,13 @@
 import express from 'express';
 import { MongoClient, MongoClientOptions } from 'mongodb';
-import  { buildSchema } from 'graphql';
+import  { buildSchema, GraphQLString } from 'graphql';
 import graphqlHttp = require('express-graphql');
+
+import { nSchema  } from '../Schema';
 
 const url = "mongodb://localhost:27017/test";
 
-const schema = buildSchema(`
-   type Query{
-       hello: string
-   }
-`);
 
-let root = {
-    hello: () => {
-      return 'Hello world!';
-    },
-  };
 
 MongoClient.connect(url, (err,db) => {
     var dbo = db.db("admin");
@@ -27,7 +19,7 @@ MongoClient.connect(url, (err,db) => {
 
 const app = express();
 
-app.use('/graphql', graphqlHttp({ schema: schema, rootValue: root, graphiql : true  }));
+app.use('/graphql', graphqlHttp({ schema:nSchema, graphiql : true  }));
 
 const port = 3000;
 const serverName = 'test';
