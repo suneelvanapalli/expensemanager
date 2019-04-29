@@ -3,7 +3,7 @@ import { MongoClient, MongoClientOptions } from 'mongodb';
 import  { buildSchema, GraphQLString } from 'graphql';
 import graphqlHttp = require('express-graphql');
 
-import { nSchema  } from '../Schema';
+import { nSchema  } from './schema';
 
 const url = "mongodb://localhost:27017/test";
 
