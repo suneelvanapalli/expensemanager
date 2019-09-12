@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   menulist = [
-    {name  : 'Expense Dashboard', url = '/dashboard'}, 
-    { name : 'Create Expense'}];
+    {name  : 'Expense Dashboard', url : '/dashboard'},
+    { name : 'Create Expense', url: '/test'}];
 }
